@@ -48,4 +48,9 @@ function flipCard(){
 
 cards.forEach(card => card.addEventListener('click', flipCard));  
 
+let timer = document.getElementById('timer');
+let count = 0;
 
+setInterval(function() {
+    timer.innerHTML = count++;
+}, 1000);
