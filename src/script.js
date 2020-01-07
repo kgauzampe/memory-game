@@ -53,3 +53,8 @@ let count = 0;
 setInterval(function() {
     timer.innerHTML = count++;
 }, 1000);
+module.exports = {
+    flipCard,
+    match,
+    shuffle
+}
