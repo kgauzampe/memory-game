@@ -14,25 +14,23 @@ function flipCard(){
 } else{
     cardFlipped = false; // second click
     secondCard = this;
-
-    // checking if cards match
-    if(firstCard.childNodes[3].src == secondCard.childNodes[3].src){
-        firstCard.removeEventListener('click',flipCard); // if its a match
-        secondCard.removeEventListener('click',flipCard);
-
-    } else{
-        // if its not a match
-            setTimeout(() => {
-            firstCard.classList.remove('flip');  // flipback cards that dont match
-            secondCard.classList.remove('flip');
-        }, 1500);
-
-       console.log('flipback');
-    }
 }
+function match(){
+   // checking if cards match
+   if(firstCard.childNodes[3].src == secondCard.childNodes[3].src){
+    firstCard.removeEventListener('click',flipCard); // if its a match
+    secondCard.removeEventListener('click',flipCard);
 
+} else{
+    // if its not a match
+        setTimeout(() => {
+        firstCard.classList.remove('flip');  // flipback cards that dont match
+        secondCard.classList.remove('flip');
+    }, 1500);
 
- 
+   console.log('flipback');
+}
+}
 }
 
 (function shuffle() {
