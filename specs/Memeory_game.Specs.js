@@ -1,4 +1,5 @@
 let memory_game = require('../script');
+// To be changed
 
 describe("function must check if cards flip", function () {
     it("check if cards flip", function () {
