@@ -1,7 +1,7 @@
 const cards = document.querySelectorAll('.memory-card');
 
 let cardFlipped = false;
-let firstCard, secondCard;
+let firstCard, secondCard; 
 
 function flipCard(){
     
@@ -15,7 +15,13 @@ function flipCard(){
     cardFlipped = false; // second click
     secondCard = this;
 }
+
+match()
+
+}
+
 function match(){
+    console.log(0)
    // checking if cards match
    if(firstCard.childNodes[3].src == secondCard.childNodes[3].src){
     firstCard.removeEventListener('click',flipCard); // if its a match
@@ -29,7 +35,6 @@ function match(){
     }, 1500);
 
    console.log('flipback');
-}
 }
 }
 
