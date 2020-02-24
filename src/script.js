@@ -1,9 +1,15 @@
 const cards = document.querySelectorAll('.memory-card');
 
 let cardFlipped = false;
-let firstCard, secondCard; 
+let firstCard, secondCard;
+let numOfFlips = 1;
+let numOfCards = 6;
 
 function flipCard(){
+    
+    if (numOfFlips > 2 )  return; // restricting flips
+
+    numOfFlips++;
     
   this.classList.add('flip');
 
@@ -21,20 +27,24 @@ match()
 }
 
 function match(){
-    console.log(0)
+    
    // checking if cards match
    if(firstCard.childNodes[3].src == secondCard.childNodes[3].src){
     firstCard.removeEventListener('click',flipCard); // if its a match
     secondCard.removeEventListener('click',flipCard);
+    numOfFlips = 1;
+    numOfCards --;
 
 } else{
     // if its not a match
         setTimeout(() => {
         firstCard.classList.remove('flip');  // flipback cards that dont match
         secondCard.classList.remove('flip');
+        numOfFlips = 1;
+        console.log('flipback');
     }, 1500);
 
-   console.log('flipback');
+   
 }
 }
 
@@ -56,7 +66,14 @@ let timer = document.getElementById('timer');
 let count = 0;
 
 setInterval(function() {
-    timer.innerHTML = count++;
+    
+    if (numOfCards > 0){
+        timer.innerHTML = count++;
+    }
+    else{
+        alert("Victory is yours!!!!");
+        window.location = window.location.href;
+    }
 }, 1000);
 module.exports = {
     flipCard,
